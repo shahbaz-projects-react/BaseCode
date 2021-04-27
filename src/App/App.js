@@ -1,15 +1,18 @@
-import './App.css';
-import { ThemeProvider } from '@material-ui/core/styles';
-import theme from '../Utils/theme'
+import "./App.css"
+import React from "react"
+import { ThemeProvider } from "@material-ui/core/styles"
+import theme from "../Utils/theme"
+import Header from "../Components/Header"
 
-function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        APP
-      </div>
-    </ThemeProvider>
-  );
+class App extends React.PureComponent {
+    render() {
+        const { REACT_APP_TITLE = "" } = process.env
+        return (
+            <ThemeProvider theme={theme}>
+                <Header title={REACT_APP_TITLE} />
+            </ThemeProvider>
+        )
+    }
 }
 
-export default App;
+export default App
