@@ -10,6 +10,7 @@ import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
+import DrawerList from "../DrawerList"
 
 class Header extends React.PureComponent {
     static propTypes = {
@@ -27,7 +28,6 @@ class Header extends React.PureComponent {
         openDrawer(!open)
     }
     render() {
-        // const { classes } = this.props
         const { title, classes, open } = this.props
         return (
             <div className={classes.root}>
@@ -51,12 +51,12 @@ class Header extends React.PureComponent {
                     variant='temporary'
                     anchor='left'
                     open={open}
-                    onClose={() => this.closeDrawer()}
+                    onClose={this.closeDrawer}
                     classes={{
                         paper: classes.drawerPaper,
                     }}
                 >
-                    CONTENT
+                    {open && <DrawerList />}
                 </Drawer>
             </div>
         )
