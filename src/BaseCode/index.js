@@ -17,6 +17,12 @@ class Base extends React.PureComponent {
 
 const mapStateToProps = (state) => ({})
 const mapDispatchToProps = (dispatch) => ({})
+
+// Base.propTypes = {
+//     // ...prop type definitions here
+//     title: PropTypes.string,
+// }
+
 export default withStyles(Styles)(
     connect(mapStateToProps, mapDispatchToProps())(Base)
 )
